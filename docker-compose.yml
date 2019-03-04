@@ -1,0 +1,12 @@
+---
+
+version: "2"
+services:
+  redis:
+    build: .
+    volumes:
+      - /opt/gopher/redis.conf:/etc/redis/redis.conf:ro
+      - /opt/gopher/security.conf:/etc/redis/security.conf:ro
+    ports:
+      - "7000:6379"
+    user: redis
