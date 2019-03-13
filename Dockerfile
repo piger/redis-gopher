@@ -14,6 +14,7 @@ RUN git clone https://github.com/antirez/redis.git --depth 1 redis && \
 FROM debian:stretch-slim
 COPY --from=0 /src/redis/src/redis-server /src/redis/src/redis-cli /usr/local/bin/
 
+# NOTE: depending on your setup you might want to create a system group and user with specific UID and GID.
 RUN apt -q update && \
     env DEBIAN_FRONTEND=noninteractive apt -q -y upgrade && \
     adduser --system --group --home /var/lib/redis redis && \
