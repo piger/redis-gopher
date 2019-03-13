@@ -7,6 +7,7 @@ services:
     volumes:
       - /opt/gopher/redis.conf:/etc/redis/redis.conf:ro
       - /opt/gopher/security.conf:/etc/redis/security.conf:ro
+      - /opt/gopher/data:/var/lib/redis
     ports:
-      - "7000:6379"
+      - "70:6379"
     user: redis
